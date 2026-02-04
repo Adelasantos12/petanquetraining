@@ -25,9 +25,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
         <AuthProvider>
-          {children}
+          <main className="flex-grow">
+            {children}
+          </main>
+          <footer className="p-4 text-xs text-gray-500 border-t border-border bg-white">
+            <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+              <div className="flex items-center space-x-2" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}>
+                <span>Developed by</span>
+                <span className="font-bold text-[#002366]">ByEasy</span>
+              </div>
+              <div>
+                © 2026 CIEP MERCI. Todos los derechos reservados.
+              </div>
+            </div>
+          </footer>
         </AuthProvider>
       </body>
     </html>

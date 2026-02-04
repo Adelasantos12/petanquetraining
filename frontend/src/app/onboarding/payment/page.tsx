@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { ArrowLeft } from 'lucide-react';
 import { api } from '@/providers/AuthProvider';
 import { Button } from '@/components/ui/Button';
 
@@ -29,6 +31,11 @@ export default function PaymentStep() {
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
       <div className="max-w-md w-full bg-white p-8 rounded-xl border border-border shadow-sm text-center">
+        <div className="text-left mb-4">
+          <Link href="/" className="inline-flex items-center text-sm text-muted hover:text-gray-900">
+            <ArrowLeft className="w-4 h-4 mr-1" /> Volver al inicio
+          </Link>
+        </div>
         <h2 className="text-2xl font-bold mb-4">Inscripción al Programa</h2>
         <p className="text-muted mb-8">
           El acceso al diagnóstico MERCI y a los bloques de entrenamiento requiere el pago de la inscripción inicial (50.00 CHF).
@@ -44,16 +51,25 @@ export default function PaymentStep() {
           </Button>
 
           {/* Debug Button */}
-          <button
+          <Button
+            variant="outline"
+            className="w-full border-dashed border-accent text-accent hover:bg-accent-light"
             onClick={async () => {
-              // Internal debug to skip payment in dev
-              await api.post('/onboarding/complete-scheduling'); // Actually simulate next step
-              router.push('/onboarding/scheduling');
+              setIsLoading(true);
+              try {
+                await api.post('/onboarding/debug/skip-payment');
+                router.push('/onboarding/schedule');
+              } catch (err) {
+                console.error(err);
+                alert('Error al saltar pago. Asegúrate de que el backend esté corriendo.');
+              } finally {
+                setIsLoading(false);
+              }
             }}
-            className="text-xs text-gray-300 mt-8 hover:text-gray-600"
+            disabled={isLoading}
           >
-            [DEBUG] Saltar pago
-          </button>
+            Simular Pago (Test)
+          </Button>
         </div>
       </div>
     </div>

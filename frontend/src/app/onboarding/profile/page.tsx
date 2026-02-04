@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { ArrowLeft } from 'lucide-react';
 import { api } from '@/providers/AuthProvider';
 import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
@@ -41,6 +43,9 @@ export default function ProfileStep() {
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4">
       <div className="max-w-2xl mx-auto bg-white p-8 rounded-xl border border-border shadow-sm">
+        <Link href="/" className="inline-flex items-center text-sm text-muted hover:text-gray-900 mb-4">
+          <ArrowLeft className="w-4 h-4 mr-1" /> Volver al inicio
+        </Link>
         <h2 className="text-2xl font-bold mb-6">Paso 1: Perfil del Jugador</h2>
         <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Input

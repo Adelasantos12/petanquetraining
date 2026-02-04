@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { ArrowLeft } from 'lucide-react';
 import { api } from '@/providers/AuthProvider';
 import { Button } from '@/components/ui/Button';
 
@@ -29,6 +31,9 @@ export default function CommitmentStep() {
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4">
       <div className="max-w-3xl mx-auto bg-white p-12 rounded-xl border border-border shadow-sm">
+        <Link href="/" className="inline-flex items-center text-sm text-muted hover:text-gray-900 mb-4">
+          <ArrowLeft className="w-4 h-4 mr-1" /> Volver al inicio
+        </Link>
         <h2 className="text-3xl font-bold mb-8 text-center">Carta de Compromiso</h2>
 
         <div className="prose prose-sm max-w-none mb-8 p-6 bg-gray-50 rounded-lg border border-border overflow-y-auto max-h-96">

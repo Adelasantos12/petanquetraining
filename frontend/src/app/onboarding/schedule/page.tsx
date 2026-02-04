@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { ArrowLeft } from 'lucide-react';
 import { api } from '@/providers/AuthProvider';
 import { Button } from '@/components/ui/Button';
 
@@ -24,6 +26,11 @@ export default function ScheduleStep() {
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
       <div className="max-w-md w-full bg-white p-8 rounded-xl border border-border shadow-sm text-center">
+        <div className="text-left mb-4">
+          <Link href="/" className="inline-flex items-center text-sm text-muted hover:text-gray-900">
+            <ArrowLeft className="w-4 h-4 mr-1" /> Volver al inicio
+          </Link>
+        </div>
         <h2 className="text-2xl font-bold mb-4">Agenda tu Sesión Inicial</h2>
         <p className="text-muted mb-8">
           ¡Pago confirmado! Ahora, por favor agenda tu sesión de diagnóstico online con el Coach Adlai Pulido.
