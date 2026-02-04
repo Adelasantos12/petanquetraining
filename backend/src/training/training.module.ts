@@ -6,6 +6,7 @@ import { TrainingBlock } from '../entities/training-block.entity';
 import { Exercise } from '../entities/exercise.entity';
 import { PlayerBlock } from '../entities/player-block.entity';
 import { PlayerExerciseRun } from '../entities/player-exercise-run.entity';
+import { OnboardingModule } from '../onboarding/onboarding.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { PlayerExerciseRun } from '../entities/player-exercise-run.entity';
       PlayerBlock,
       PlayerExerciseRun,
     ]),
+    OnboardingModule,
   ],
   providers: [TrainingService],
   controllers: [TrainingController],
