@@ -1,0 +1,13 @@
+
+> backend@0.0.1 test
+> jest src/users/users.service.spec.ts
+
+PASS src/users/users.service.spec.ts
+  UsersService
+    ✓ should be defined (22 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        1.896 s, estimated 2 s
+Ran all test suites matching src/users/users.service.spec.ts.

@@ -20,9 +20,16 @@ export default function RegisterPage() {
 
     try {
       await api.post('/auth/register', { email, password });
-      router.push('/login');
+      // Registration successful, redirecting to login
+      router.push('/login?registered=true');
     } catch (err: any) {
-      setError(err.response?.data?.message || 'Error al registrarse');
+      console.error('Registration error:', err);
+      const message = err.response?.data?.message;
+      if (Array.isArray(message)) {
+        setError(message.join(', '));
+      } else {
+        setError(message || 'Error al conectar con el servidor. Inténtalo de nuevo.');
+      }
     } finally {
       setIsLoading(false);
     }

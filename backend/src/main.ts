@@ -6,22 +6,14 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
     rawBody: true,
   });
+  app.enableCors();
+  app.useGlobalPipes(new ValidationPipe({
+    whitelist: true,
+    transform: true,
+  }));
 
-  app.enableCors({
-    origin: process.env.FRONTEND_URL, // ej: https://petanquetraining-production.up.railway.app
-    credentials: true,
-  });
-
-  app.useGlobalPipes(
-    new ValidationPipe({
-      whitelist: true,
-      transform: true,
-    }),
-  );
-
-  const port = Number(process.env.PORT) || 3001;
-  await app.listen(port, '0.0.0.0');   // <-- clave para Railway
-
+  const port = process.env.PORT || 3001;
+  await app.listen(port);
   console.log(`Application is running on: ${await app.getUrl()}`);
 }
 bootstrap();
