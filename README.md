@@ -1,33 +1,53 @@
-# CIEP MERCI - Petanca SaaS
+# CIEP MERCI - Petanca SaaS (Railway Optimized)
 
-Este es un monorepo que contiene el Backend (NestJS) y el Frontend (Next.js) para la plataforma de seguimiento de petanca.
+Este es un monorepo que contiene el Backend (NestJS) y el Frontend (Next.js) para la plataforma de seguimiento de petanca basada en el método MERCI.
 
 ## Estructura
-- `/backend`: API REST con NestJS y TypeORM (PostgreSQL).
+- `/backend`: API REST con NestJS, TypeORM y PostgreSQL.
 - `/frontend`: Aplicación web con Next.js y TailwindCSS.
 
-## Despliegue en Railway
+---
 
-Para un despliegue exitoso en Railway, se recomienda crear **dos servicios separados** apuntando al mismo repositorio:
+## 🚀 Despliegue en Railway
 
-### 1. Servicio de Backend
-- **Root Directory**: `backend`
-- **Variables de Entorno**:
-  - `PORT`: 3001 (o el que asigne Railway)
-  - `DATABASE_URL`: (Conectar a tu base de datos PostgreSQL de Railway)
-  - `JWT_SECRET`: (Tu clave secreta)
-  - `STRIPE_SECRET_KEY`: (Tu clave de Stripe)
-  - `FRONTEND_URL`: (La URL final de tu servicio frontend)
-  - `DB_SYNC`: `true` (Solo para la primera ejecución, luego `false`)
+Sigue estos pasos para desplegar la plataforma completa. **No uses Vercel**, todo se puede gestionar dentro de Railway.
 
-### 2. Servicio de Frontend
-- **Root Directory**: `frontend`
-- **Variables de Entorno**:
-  - `NEXT_PUBLIC_API_URL`: (La URL de tu servicio backend de Railway)
+### 1. Base de Datos (PostgreSQL)
+1. En tu proyecto de Railway, haz clic en **+ New** -> **Database** -> **Add PostgreSQL**.
+2. Railway creará la base de datos automáticamente.
 
-## Desarrollo Local con Docker
-Usa el comando:
+### 2. Servicio de Backend (API)
+1. Haz clic en **+ New** -> **GitHub Repo** -> Selecciona este repositorio.
+2. En los ajustes del servicio (**Settings**):
+   - **Service Name**: `backend`
+   - **Root Directory**: `backend`
+3. En la pestaña **Variables**, añade las siguientes:
+   - `PORT`: `3001`
+   - `DATABASE_URL`: `${{Postgres.DATABASE_URL}}` (Selecciona la variable de la base de datos creada en el paso 1)
+   - `JWT_SECRET`: (Cualquier cadena larga y segura)
+   - `STRIPE_SECRET_KEY`: (Tu sk_test_... de Stripe)
+   - `STRIPE_WEBHOOK_SECRET`: (whsec_... de Stripe Webhooks)
+   - `FRONTEND_URL`: (La URL que Railway te asigne para el servicio frontend, ej: `https://frontend-production.up.railway.app`)
+   - `DB_SYNC`: `true` (Cambia a `false` después del primer despliegue exitoso)
+
+### 3. Servicio de Frontend (Web App)
+1. Haz clic en **+ New** -> **GitHub Repo** -> Selecciona el mismo repositorio.
+2. En los ajustes del servicio (**Settings**):
+   - **Service Name**: `frontend`
+   - **Root Directory**: `frontend`
+3. En la pestaña **Variables**, añade:
+   - `NEXT_PUBLIC_API_URL`: (La URL que Railway te asigne para el servicio backend, ej: `https://backend-production.up.railway.app`)
+
+---
+
+## 🛠 Desarrollo Local
+Si tienes Docker instalado, puedes correr todo localmente:
 ```bash
 docker-compose up --build
 ```
-El backend correrá en `http://localhost:3001` y el frontend en `http://localhost:3000`.
+- Frontend: `http://localhost:3000`
+- Backend: `http://localhost:3001`
+
+## 🔒 Seguridad
+- El registro público está restringido al rol `PLAYER`.
+- Los endpoints de entrenamiento están protegidos por un `GatingGuard` que verifica que el jugador haya completado el onboarding (Pago y Compromiso).
