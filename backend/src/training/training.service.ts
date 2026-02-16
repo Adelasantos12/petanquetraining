@@ -45,8 +45,11 @@ export class TrainingService {
 
   async recordResult(userId: string, dto: RecordResultDto) {
     const user = await this.userRepository.findOne({ where: { id: userId } });
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
     if (user.status !== UserStatus.ACTIVE_MEMBER) {
-        throw new ForbiddenException('Only active members can record results');
+      throw new ForbiddenException('Only active members can record results');
     }
 
     const activeBlock = await this.getActiveBlock(userId);

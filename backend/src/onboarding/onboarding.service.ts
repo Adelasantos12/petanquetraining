@@ -52,13 +52,18 @@ export class OnboardingService {
 
   async getStatus(userId: string) {
     const user = await this.userRepository.findOne({
-        where: { id: userId },
-        relations: ['profile', 'merciAssessments']
+      where: { id: userId },
+      relations: ['profile', 'merciAssessments'],
     });
+
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+
     return {
-        status: user.status,
-        hasProfile: !!user.profile,
-        hasAssessment: user.merciAssessments.length > 0,
+      status: user.status,
+      hasProfile: !!user.profile,
+      hasAssessment: user.merciAssessments.length > 0,
     };
   }
 }

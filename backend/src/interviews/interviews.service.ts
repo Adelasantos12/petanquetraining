@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Interview, InterviewDecision } from '../entities/interview.entity';
@@ -27,9 +27,14 @@ export class InterviewsService {
 
   async complete(userId: string, notes: string, decision: InterviewDecision) {
     const interview = await this.interviewRepository.findOne({
-        where: { userId },
-        order: { createdAt: 'DESC' }
+      where: { userId },
+      order: { createdAt: 'DESC' },
     });
+
+    if (!interview) {
+      throw new NotFoundException('Interview not found');
+    }
+
     interview.notes = notes;
     interview.decision = decision;
     interview.completedAt = new Date();
