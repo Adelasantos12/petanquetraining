@@ -13,14 +13,14 @@ export class MerciController {
   constructor(private merciService: MerciService) {}
 
   @Post()
-  @Roles(UserRole.PLAYER)
+  @Roles(UserRole.USER)
   @UseGuards(GatingGuard)
   async submitAssessment(@Request() req, @Body() dto: CreateMerciAssessmentDto) {
     return this.merciService.create(req.user.id, dto);
   }
 
   @Get('my-results')
-  @Roles(UserRole.PLAYER)
+  @Roles(UserRole.USER)
   @UseGuards(GatingGuard)
   async getMyResults(@Request() req) {
     return this.merciService.findByPlayer(req.user.id);

@@ -11,6 +11,11 @@ import { UserRole } from '../entities/user.entity';
 export class CoachController {
   constructor(private coachService: CoachService) {}
 
+  @Get('pipeline')
+  async getPipeline() {
+    return this.coachService.findAllPlayers(); // Reusing the list for now
+  }
+
   @Get('players')
   async getAllPlayers() {
     return this.coachService.findAllPlayers();

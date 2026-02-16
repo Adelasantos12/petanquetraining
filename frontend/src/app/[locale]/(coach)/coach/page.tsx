@@ -3,10 +3,13 @@
 import { useEffect, useState } from 'react';
 import { api, useAuth } from '@/providers/AuthProvider';
 import { Button } from '@/components/ui/Button';
+import { useRouter } from '@/navigation';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 
 export default function CoachDashboard() {
+  const t = useTranslations('common');
+  const ts = useTranslations('status');
   const { logout } = useAuth();
   const router = useRouter();
   const [players, setPlayers] = useState<any[]>([]);
@@ -43,9 +46,9 @@ export default function CoachDashboard() {
             <thead>
               <tr className="bg-gray-50 border-b border-border">
                 <th className="px-6 py-4 font-bold text-sm">Email</th>
-                <th className="px-6 py-4 font-bold text-sm">Estado Onboarding</th>
-                <th className="px-6 py-4 font-bold text-sm">Años Exp.</th>
-                <th className="px-6 py-4 font-bold text-sm">Acciones</th>
+                <th className="px-6 py-4 font-bold text-sm">{t('status')}</th>
+                <th className="px-6 py-4 font-bold text-sm">Exp.</th>
+                <th className="px-6 py-4 font-bold text-sm">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-border">
@@ -54,9 +57,9 @@ export default function CoachDashboard() {
                   <td className="px-6 py-4 text-sm font-medium">{player.email}</td>
                   <td className="px-6 py-4 text-sm capitalize">
                     <span className={`px-2 py-1 rounded-full text-[10px] font-bold ${
-                      player.profile?.onboardingStep === 'completed' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'
+                      player.status === 'active_member' ? 'bg-green-100 text-green-700' : 'bg-blue-100 text-blue-700'
                     }`}>
-                      {player.profile?.onboardingStep}
+                      {ts(player.status)}
                     </span>
                   </td>
                   <td className="px-6 py-4 text-sm">{player.profile?.yearsOfExperience || '-'}</td>

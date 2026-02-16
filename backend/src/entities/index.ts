@@ -7,6 +7,10 @@ import { TrainingBlock } from './training-block.entity';
 import { PlayerBlock } from './player-block.entity';
 import { Exercise } from './exercise.entity';
 import { PlayerExerciseRun } from './player-exercise-run.entity';
+import { Application } from './application.entity';
+import { Interview } from './interview.entity';
+import { AdmissionDecision } from './admission-decision.entity';
+import { PaymentLink } from './payment-link.entity';
 
 export {
   User,
@@ -18,6 +22,10 @@ export {
   PlayerBlock,
   Exercise,
   PlayerExerciseRun,
+  Application,
+  Interview,
+  AdmissionDecision,
+  PaymentLink,
 };
 
 export const ENTITIES = [
@@ -30,4 +38,8 @@ export const ENTITIES = [
   PlayerBlock,
   Exercise,
   PlayerExerciseRun,
+  Application,
+  Interview,
+  AdmissionDecision,
+  PaymentLink,
 ];

@@ -11,6 +11,9 @@ import { PaymentsModule } from './payments/payments.module';
 import { MerciModule } from './merci/merci.module';
 import { TrainingModule } from './training/training.module';
 import { CoachModule } from './coach/coach.module';
+import { ApplicationsModule } from './applications/applications.module';
+import { InterviewsModule } from './interviews/interviews.module';
+import { AdmissionModule } from './admission/admission.module';
 
 @Module({
   imports: [
@@ -39,6 +42,9 @@ import { CoachModule } from './coach/coach.module';
     MerciModule,
     TrainingModule,
     CoachModule,
+    ApplicationsModule,
+    InterviewsModule,
+    AdmissionModule,
   ],
   controllers: [AppController],
   providers: [AppService],

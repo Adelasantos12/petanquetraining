@@ -1,0 +1,53 @@
+{
+  "common": {
+    "save": "Sauvegarder",
+    "next": "Suivant",
+    "back": "Retour",
+    "loading": "Chargement...",
+    "home": "Accueil",
+    "logout": "Déconnexion",
+    "status": "Statut"
+  },
+  "landing": {
+    "title": "CIEP MERCI",
+    "subtitle": "Programme intensif de suivi de pétanque",
+    "description": "Optimisez votre performance avec la méthode MERCI.",
+    "login": "Connexion",
+    "register": "S'inscrire"
+  },
+  "application": {
+    "title": "Formulaire d'Admission",
+    "section1": "Identification de Base",
+    "section2": "Profil Sportif",
+    "section3": "Disponibilité et Logistique",
+    "section4": "Motivation et Engagement",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "country": "Pays",
+    "city": "Ville",
+    "yearsPlaying": "Années de pratique",
+    "weeklyHours": "Heures disponibles par semaine",
+    "courtAccess": "J'ai accès à un terrain",
+    "submit": "Envoyer la Candidature"
+  },
+  "onboarding": {
+      "profile": "Profil du Joueur",
+      "commitment": "Lettre d'Engagement",
+      "payment": "Inscription",
+      "schedule": "Planifier une Session"
+  },
+  "training": {
+    "distance": "Distance",
+    "saveResult": "Enregistrer le résultat"
+  },
+  "status": {
+      "lead": "Début",
+      "applicant_submitted": "Candidature Envoyée",
+      "preselected": "Présélectionné",
+      "interview_scheduled": "Entretien Planifié",
+      "interview_completed": "Entretien Terminé",
+      "diagnostic_unlocked": "Diagnostic Débloqué",
+      "accepted": "Accepté",
+      "active_member": "Membre Actif"
+  }
+}

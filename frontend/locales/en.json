@@ -1,0 +1,53 @@
+{
+  "common": {
+    "save": "Save",
+    "next": "Next",
+    "back": "Back",
+    "loading": "Loading...",
+    "home": "Home",
+    "logout": "Logout",
+    "status": "Status"
+  },
+  "landing": {
+    "title": "CIEP MERCI",
+    "subtitle": "Intensive petanque tracking program",
+    "description": "Optimize your performance with the MERCI method.",
+    "login": "Login",
+    "register": "Register"
+  },
+  "application": {
+    "title": "Admission Form",
+    "section1": "Basic Identification",
+    "section2": "Sports Profile",
+    "section3": "Availability & Logistics",
+    "section4": "Motivation & Commitment",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "country": "Country",
+    "city": "City",
+    "yearsPlaying": "Years playing",
+    "weeklyHours": "Available hours per week",
+    "courtAccess": "I have access to a court",
+    "submit": "Submit Application"
+  },
+  "onboarding": {
+      "profile": "Player Profile",
+      "commitment": "Commitment Letter",
+      "payment": "Registration",
+      "schedule": "Schedule Session"
+  },
+  "training": {
+    "distance": "Distance",
+    "saveResult": "Save Result"
+  },
+  "status": {
+      "lead": "Start",
+      "applicant_submitted": "Application Submitted",
+      "preselected": "Preselected",
+      "interview_scheduled": "Interview Scheduled",
+      "interview_completed": "Interview Completed",
+      "diagnostic_unlocked": "Diagnostic Unlocked",
+      "accepted": "Accepted",
+      "active_member": "Active Member"
+  }
+}

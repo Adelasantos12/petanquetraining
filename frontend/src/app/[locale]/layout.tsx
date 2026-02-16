@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/providers/AuthProvider";
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,18 +20,23 @@ export const metadata: Metadata = {
   description: "Seguimiento intensivo de petanca",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params: { locale }
 }: Readonly<{
   children: React.ReactNode;
+  params: { locale: string };
 }>) {
+  const messages = await getMessages();
+
   return (
-    <html lang="es">
+    <html lang={locale}>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
-        <AuthProvider>
-          <main className="flex-grow">
-            {children}
-          </main>
+        <NextIntlClientProvider messages={messages}>
+          <AuthProvider>
+            <main className="flex-grow">
+              {children}
+            </main>
           <footer className="p-4 text-xs text-gray-500 border-t border-border bg-white">
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
               <div className="flex items-center space-x-2" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}>
@@ -41,7 +48,8 @@ export default function RootLayout({
               </div>
             </div>
           </footer>
-        </AuthProvider>
+          </AuthProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

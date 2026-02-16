@@ -24,14 +24,14 @@ export class CoachService {
 
   async findAllPlayers() {
     return this.userRepository.find({
-      where: { role: UserRole.PLAYER },
+      where: { role: UserRole.USER },
       relations: ['profile'],
     });
   }
 
   async getPlayerDetails(userId: string) {
     const user = await this.userRepository.findOne({
-      where: { id: userId, role: UserRole.PLAYER },
+      where: { id: userId, role: UserRole.USER },
       relations: ['profile', 'merciAssessments', 'playerBlocks', 'playerBlocks.block', 'payments'],
     });
 

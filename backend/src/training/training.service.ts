@@ -1,6 +1,7 @@
-import { Injectable, BadRequestException, NotFoundException } from '@nestjs/common';
+import { Injectable, BadRequestException, NotFoundException, ForbiddenException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { User, UserStatus } from '../entities/user.entity';
 import { TrainingBlock } from '../entities/training-block.entity';
 import { Exercise } from '../entities/exercise.entity';
 import { PlayerBlock } from '../entities/player-block.entity';
@@ -10,6 +11,8 @@ import { RecordResultDto } from './dto/record-result.dto';
 @Injectable()
 export class TrainingService {
   constructor(
+    @InjectRepository(User)
+    private userRepository: Repository<User>,
     @InjectRepository(TrainingBlock)
     private blockRepository: Repository<TrainingBlock>,
     @InjectRepository(Exercise)
@@ -41,6 +44,11 @@ export class TrainingService {
   }
 
   async recordResult(userId: string, dto: RecordResultDto) {
+    const user = await this.userRepository.findOne({ where: { id: userId } });
+    if (user.status !== UserStatus.ACTIVE_MEMBER) {
+        throw new ForbiddenException('Only active members can record results');
+    }
+
     const activeBlock = await this.getActiveBlock(userId);
     if (!activeBlock) throw new BadRequestException('No active block for this player');
 

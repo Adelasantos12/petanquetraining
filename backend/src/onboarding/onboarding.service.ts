@@ -5,6 +5,9 @@ import { PlayerProfile } from '../entities/player-profile.entity';
 import { Commitment } from '../entities/commitment.entity';
 import { User } from '../entities/user.entity';
 
+import { UserStatusService } from '../users/user-status.service';
+import { UserStatus } from '../entities/user.entity';
+
 @Injectable()
 export class OnboardingService {
   constructor(
@@ -14,50 +17,48 @@ export class OnboardingService {
     private commitmentRepository: Repository<Commitment>,
     @InjectRepository(User)
     private userRepository: Repository<User>,
+    private statusService: UserStatusService,
   ) {}
 
   async getProfile(userId: string) {
-    let profile = await this.profileRepository.findOne({ where: { userId } });
-    if (!profile) {
-      profile = this.profileRepository.create({ userId, onboardingStep: 'profile' });
-      await this.profileRepository.save(profile);
-    }
-    return profile;
+    return this.profileRepository.findOne({ where: { userId } });
   }
 
   async updateProfile(userId: string, data: any) {
-    const profile = await this.getProfile(userId);
+    let profile = await this.getProfile(userId);
+    if (!profile) {
+        profile = this.profileRepository.create({ userId });
+    }
     Object.assign(profile, data);
-    profile.onboardingStep = 'commitment';
     return this.profileRepository.save(profile);
   }
 
   async signCommitment(userId: string, metadata: any) {
-    const profile = await this.getProfile(userId);
-    if (profile.onboardingStep !== 'commitment') {
-      throw new BadRequestException('Must complete profile first');
-    }
-
     const commitment = this.commitmentRepository.create({
       userId,
       version: '1.0',
       metadata,
     });
-    await this.commitmentRepository.save(commitment);
-
-    profile.onboardingStep = 'payment';
-    return this.profileRepository.save(profile);
+    return this.commitmentRepository.save(commitment);
   }
 
   async completePayment(userId: string) {
-    const profile = await this.getProfile(userId);
-    profile.onboardingStep = 'scheduling';
-    return this.profileRepository.save(profile);
+    return this.statusService.updateStatus(userId, UserStatus.ACTIVE_MEMBER, 'Payment confirmed');
   }
 
   async completeScheduling(userId: string) {
-    const profile = await this.getProfile(userId);
-    profile.onboardingStep = 'completed';
-    return this.profileRepository.save(profile);
+    return this.statusService.updateStatus(userId, UserStatus.DIAGNOSTIC_UNLOCKED, 'Interview scheduled');
+  }
+
+  async getStatus(userId: string) {
+    const user = await this.userRepository.findOne({
+        where: { id: userId },
+        relations: ['profile', 'merciAssessments']
+    });
+    return {
+        status: user.status,
+        hasProfile: !!user.profile,
+        hasAssessment: user.merciAssessments.length > 0,
+    };
   }
 }

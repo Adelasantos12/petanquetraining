@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { Button } from './ui/Button';
 
 interface TechnicalSheetProps {
@@ -11,6 +12,7 @@ interface TechnicalSheetProps {
 }
 
 const TechnicalSheet = ({ exerciseName, distance, onSave, isLoading }: TechnicalSheetProps) => {
+  const t = useTranslations('training');
   const [balls, setBalls] = useState<number[]>(Array(6).fill(0));
 
   const toggleBall = (index: number) => {
@@ -26,7 +28,7 @@ const TechnicalSheet = ({ exerciseName, distance, onSave, isLoading }: Technical
       <div className="bg-gray-50 p-4 border-b border-border flex justify-between items-center">
         <div>
           <h3 className="font-bold text-lg">{exerciseName}</h3>
-          <p className="text-sm text-muted">Distancia: {distance}m</p>
+          <p className="text-sm text-muted">{t('distance')}: {distance}m</p>
         </div>
         <div className="text-right">
           <span className="text-2xl font-bold text-accent">{total}</span>
@@ -56,7 +58,7 @@ const TechnicalSheet = ({ exerciseName, distance, onSave, isLoading }: Technical
           onClick={() => onSave(balls)}
           disabled={isLoading}
         >
-          {isLoading ? 'Guardando...' : 'Registrar Resultado'}
+          {isLoading ? '...' : t('saveResult')}
         </Button>
       </div>
     </div>

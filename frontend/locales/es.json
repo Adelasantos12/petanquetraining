@@ -1,0 +1,53 @@
+{
+  "common": {
+    "save": "Guardar",
+    "next": "Siguiente",
+    "back": "Atrás",
+    "loading": "Cargando...",
+    "home": "Inicio",
+    "logout": "Cerrar Sesión",
+    "status": "Estado"
+  },
+  "landing": {
+    "title": "CIEP MERCI",
+    "subtitle": "Programa intensivo de seguimiento de petanca",
+    "description": "Optimiza tu rendimiento con el método MERCI.",
+    "login": "Iniciar Sesión",
+    "register": "Registrarse"
+  },
+  "application": {
+    "title": "Formulario de Admisión",
+    "section1": "Identificación Básica",
+    "section2": "Perfil Deportivo",
+    "section3": "Disponibilidad y Logística",
+    "section4": "Motivación y Compromiso",
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "country": "País",
+    "city": "Ciudad",
+    "yearsPlaying": "Años jugando",
+    "weeklyHours": "Horas disponibles por semana",
+    "courtAccess": "Tengo acceso a una cancha",
+    "submit": "Enviar Aplicación"
+  },
+  "onboarding": {
+      "profile": "Perfil del Jugador",
+      "commitment": "Carta Compromiso",
+      "payment": "Inscripción",
+      "schedule": "Agendar Sesión"
+  },
+  "training": {
+    "distance": "Distancia",
+    "saveResult": "Registrar Resultado"
+  },
+  "status": {
+      "lead": "Inicio",
+      "applicant_submitted": "Aplicación Enviada",
+      "preselected": "Preseleccionado",
+      "interview_scheduled": "Entrevista Agendada",
+      "interview_completed": "Entrevista Completada",
+      "diagnostic_unlocked": "Diagnóstico Desbloqueado",
+      "accepted": "Admitido",
+      "active_member": "Miembro Activo"
+  }
+}

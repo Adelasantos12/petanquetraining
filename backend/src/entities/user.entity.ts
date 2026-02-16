@@ -8,7 +8,25 @@ import { PlayerExerciseRun } from './player-exercise-run.entity';
 
 export enum UserRole {
   COACH = 'coach',
-  PLAYER = 'player',
+  USER = 'user',
+}
+
+export enum UserStatus {
+  LEAD = 'lead',
+  APPLICANT_SUBMITTED = 'applicant_submitted',
+  PRESELECTED = 'preselected',
+  INTERVIEW_SCHEDULED = 'interview_scheduled',
+  INTERVIEW_COMPLETED = 'interview_completed',
+  DIAGNOSTIC_UNLOCKED = 'diagnostic_unlocked',
+  DIAGNOSTIC_IN_PROGRESS = 'diagnostic_in_progress',
+  DIAGNOSTIC_COMPLETED = 'diagnostic_completed',
+  ACCEPTED = 'accepted',
+  PAYMENT_PENDING = 'payment_pending',
+  ACTIVE_MEMBER = 'active_member',
+  DELINQUENT = 'delinquent',
+  SUSPENDED = 'suspended',
+  WAITLISTED = 'waitlisted',
+  NOT_ELIGIBLE = 'not_eligible',
 }
 
 @Entity('users')
@@ -22,8 +40,14 @@ export class User {
   @Column({ select: false })
   password: string;
 
-  @Column({ type: 'enum', enum: UserRole, default: UserRole.PLAYER })
+  @Column({ type: 'enum', enum: UserRole, default: UserRole.USER })
   role: UserRole;
+
+  @Column({ type: 'enum', enum: UserStatus, default: UserStatus.LEAD })
+  status: UserStatus;
+
+  @Column({ default: 'ES' })
+  preferredLanguage: string; // ES, EN, FR
 
   @Column({ default: true })
   isActive: boolean;

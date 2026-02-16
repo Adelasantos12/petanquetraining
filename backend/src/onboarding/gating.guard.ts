@@ -1,6 +1,6 @@
 import { Injectable, CanActivate, ExecutionContext, ForbiddenException } from '@nestjs/common';
 import { OnboardingService } from './onboarding.service';
-import { UserRole } from '../entities/user.entity';
+import { UserRole, UserStatus } from '../entities/user.entity';
 
 @Injectable()
 export class GatingGuard implements CanActivate {
@@ -13,11 +13,11 @@ export class GatingGuard implements CanActivate {
     if (!user) return false;
     if (user.role === UserRole.COACH) return true;
 
-    const profile = await this.onboardingService.getProfile(user.id);
-    if (profile.onboardingStep !== 'completed') {
+    // ACTIVE_MEMBER is the only state allowed to access training/active features
+    if (user.status !== UserStatus.ACTIVE_MEMBER) {
       throw new ForbiddenException({
-        message: 'Onboarding not completed',
-        step: profile.onboardingStep,
+        message: 'Access restricted: Active membership required',
+        status: user.status,
       });
     }
 

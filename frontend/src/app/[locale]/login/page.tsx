@@ -7,6 +7,7 @@ import { ArrowLeft } from 'lucide-react';
 import { useAuth, api } from '@/providers/AuthProvider';
 import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 function LoginForm() {
   const [email, setEmail] = useState('');
@@ -47,9 +48,12 @@ function LoginForm() {
 
   return (
     <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-xl border border-border">
-      <Link href="/" className="inline-flex items-center text-sm text-muted hover:text-gray-900 mb-4">
-        <ArrowLeft className="w-4 h-4 mr-1" /> Volver al inicio
-      </Link>
+      <div className="flex justify-between items-center mb-4">
+        <Link href="/" className="inline-flex items-center text-sm text-muted hover:text-gray-900">
+          <ArrowLeft className="w-4 h-4 mr-1" /> Volver al inicio
+        </Link>
+        <LanguageSwitcher />
+      </div>
       <div className="text-center">
         <h2 className="text-3xl font-bold text-gray-900">Bienvenido a CIEP</h2>
         <p className="mt-2 text-sm text-muted">Ingresa a tu cuenta MERCI</p>

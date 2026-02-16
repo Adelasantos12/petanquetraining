@@ -28,6 +28,9 @@ export class MerciAssessment {
   @Column({ type: 'int' })
   intelligence: number;
 
+  @Column({ type: 'jsonb', nullable: true })
+  answersJson: any;
+
   @Column({ type: 'int' })
   totalScore: number;
 

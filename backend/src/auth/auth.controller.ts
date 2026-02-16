@@ -18,7 +18,7 @@ export class AuthController {
     // Force role to PLAYER for public registration
     return this.usersService.create({
       ...registerDto,
-      role: UserRole.PLAYER,
+      role: UserRole.USER,
     });
   }
 
