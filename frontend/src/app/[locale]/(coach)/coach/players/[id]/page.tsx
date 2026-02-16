@@ -1,12 +1,12 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
+import { useRouter, Link } from '@/navigation';
 import { api } from '@/providers/AuthProvider';
 import { Button } from '@/components/ui/Button';
 import MerciRadar from '@/components/MerciRadar';
 import { ChevronLeft } from 'lucide-react';
-import Link from 'next/link';
 
 export default function PlayerDetails() {
   const { id } = useParams();

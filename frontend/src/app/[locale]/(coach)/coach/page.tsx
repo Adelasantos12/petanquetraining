@@ -3,9 +3,8 @@
 import { useEffect, useState } from 'react';
 import { api, useAuth } from '@/providers/AuthProvider';
 import { Button } from '@/components/ui/Button';
-import { useRouter } from '@/navigation';
+import { useRouter, Link } from '@/navigation';
 import { useTranslations } from 'next-intl';
-import Link from 'next/link';
 
 export default function CoachDashboard() {
   const t = useTranslations('common');

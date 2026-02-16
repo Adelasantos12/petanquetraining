@@ -1,11 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, Link } from '@/navigation';
 import { api, useAuth } from '@/providers/AuthProvider';
 import { Button } from '@/components/ui/Button';
 import MerciRadar from '@/components/MerciRadar';
-import Link from 'next/link';
 
 export default function PlayerDashboard() {
   const { user, logout } = useAuth();

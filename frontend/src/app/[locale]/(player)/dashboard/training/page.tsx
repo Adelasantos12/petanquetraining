@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { api } from '@/providers/AuthProvider';
 import TechnicalSheet from '@/components/TechnicalSheet';
 import { Button } from '@/components/ui/Button';
-import Link from 'next/link';
+import { Link } from '@/navigation';
 import { ChevronLeft } from 'lucide-react';
 
 export default function TrainingPage() {
