@@ -6,48 +6,74 @@
     "loading": "Chargement...",
     "home": "Accueil",
     "logout": "Déconnexion",
-    "status": "Statut"
+    "status": "Statut",
+    "apply": "Postuler",
+    "signin": "Se connecter"
   },
   "landing": {
-    "title": "CIEP MERCI",
-    "subtitle": "Programme intensif de suivi de pétanque",
-    "description": "Optimisez votre performance avec la méthode MERCI.",
-    "login": "Connexion",
-    "register": "S'inscrire"
+    "title": "perform.",
+    "tagline": "La référence du suivi de la haute performance.",
+    "hero_title": "Optimisez votre technique. Dominez la compétition.",
+    "hero_subtitle": "Méthodologie avancée de diagnostic et de suivi pour les athlètes en quête d'excellence technique grâce à des données mesurables.",
+    "cta_primary": "Demander l'admission",
+    "cta_secondary": "Se connecter",
+    "what_is": {
+      "title": "Qu'est-ce que perform ?",
+      "description": "Une plateforme exclusive de gestion technique basée sur le système CIEP. Ce n'est pas un cours ; c'est un programme de suivi complet pour transformer votre performance."
+    },
+    "how_works": {
+      "title": "Comment ça marche",
+      "step1": "Candidature",
+      "step1_desc": "Soumettez votre demande en détaillant votre profil sportif et vos objectifs.",
+      "step2": "Entretien",
+      "step2_desc": "Évaluation personnalisée pour valider la compatibilité con le programme.",
+      "step3": "Diagnostic",
+      "step3_desc": "Analyse approfondie de vos capacités techniques et cognitives.",
+      "step4": "Admission",
+      "step4_desc": "Accès au plan d'entraînement intensif et au suivi des données."
+    },
+    "eligibility": {
+      "title": "Pas pour tout le monde.",
+      "subtitle": "Nous recherchons des athlètes engagés dans la discipline et l'amélioration continue.",
+      "points": [
+        "Engagement envers l'entraînement quotidien.",
+        "Accès à des installations techniques adéquates.",
+        "Capacité à analyser et à enregistrer les résultats.",
+        "Mentalité orientée vers l'excellence."
+      ]
+    },
+    "faq": {
+        "title": "Questions Fréquemment Posées",
+        "q1": "S'agit-il d'un cours en ligne ?",
+        "a1": "Non. perform est une plateforme de suivi technique et de diagnostic intégral. Vous recevez un plan personnalisé basé sur vos données.",
+        "q2": "Ai-je besoin d'un équipement spécial ?",
+        "a2": "Vous devez avoir accès à un terrain de pétanque réglementaire et à votre propre jeu de boules de compétition.",
+        "q3": "Combien de temps dure le programme ?",
+        "a3": "Il s'agit d'un programme continu de haute performance. La phase de diagnostic initiale dure 2 semaines."
+    }
   },
-  "application": {
-    "title": "Formulaire d'Admission",
-    "section1": "Identification de Base",
-    "section2": "Profil Sportif",
-    "section3": "Disponibilité et Logistique",
-    "section4": "Motivation et Engagement",
-    "firstName": "Prénom",
-    "lastName": "Nom",
-    "country": "Pays",
-    "city": "Ville",
-    "yearsPlaying": "Années de pratique",
-    "weeklyHours": "Heures disponibles par semaine",
-    "courtAccess": "J'ai accès à un terrain",
-    "submit": "Envoyer la Candidature"
-  },
-  "onboarding": {
-      "profile": "Profil du Joueur",
-      "commitment": "Lettre d'Engagement",
-      "payment": "Inscription",
-      "schedule": "Planifier une Session"
-  },
-  "training": {
-    "distance": "Distance",
-    "saveResult": "Enregistrer le résultat"
-  },
-  "status": {
-      "lead": "Début",
-      "applicant_submitted": "Candidature Envoyée",
-      "preselected": "Présélectionné",
-      "interview_scheduled": "Entretien Planifié",
-      "interview_completed": "Entretien Terminé",
-      "diagnostic_unlocked": "Diagnostic Débloqué",
-      "accepted": "Accepté",
-      "active_member": "Membre Actif"
+  "apply": {
+    "title": "Demande d'Admission",
+    "description": "Complétez les étapes suivantes pour postuler au programme de haute performance.",
+    "steps": {
+      "personal": "Personnel",
+      "sport": "Sportif",
+      "logistics": "Logistique",
+      "motivation": "Motivation"
+    },
+    "form": {
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "country": "Pays",
+      "city": "Ville",
+      "yearsExperience": "Années d'expérience",
+      "tournamentsCurrent": "Tournois joués / an",
+      "tournamentsGoal": "Tournois visés / an",
+      "weeklyHours": "Heures disponibles par semaine",
+      "hasCourt": "Avez-vous accès à un terrain ?",
+      "hasEquipment": "Avez-vous votre propre équipement ?",
+      "motivation": "Pourquoi voulez-vous rejoindre perform ?",
+      "submit": "Envoyer la demande"
+    }
   }
 }

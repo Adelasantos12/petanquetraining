@@ -1,0 +1,47 @@
+
+> frontend@0.1.0 build
+> next build
+
+▲ Next.js 16.1.6 (Turbopack)
+
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+  Creating an optimized production build ...
+
+> Build error occurred
+Error: Turbopack build failed with 1 errors:
+./src/messages/es.json
+Code generation for chunk item errored
+An error occurred while generating the chunk item [project]/src/messages/es.json (json)
+
+Caused by:
+- Unable to make a module from invalid JSON: expected value at line 25 column 16
+
+Debug info:
+- An error occurred while generating the chunk item [project]/src/messages/es.json (json)
+- Execution of <JsonChunkItem as EcmascriptChunkItem>::content failed
+- Unable to make a module from invalid JSON: expected value at line 25 column 16
+    at landing.how_works.title
+      21 |       "title": "¿Qué es perform?",
+      22 |       "description": "Una plataforma exclusiva de gestión técnica basada en el sistema CIEP. No es un curso; es un programa de seguimiento integral para transformar tu rendimiento."
+      23 |     },
+      24 |     "how_works": {
+         |                v
+      25 +       "title": Cómo funciona",
+         |                ^
+      26 |       "step1": "Postulación",
+      27 |       "step1_desc": "Envía tu solicitud detallando tu perfil deportivo y objetivos.",
+      28 |       "step2": "Entrevista",
+      29 |       "step2_desc": "Evaluación personalizada para validar compatibilidad con el programa.",
+
+Import trace:
+  Edge Middleware:
+    ./src/messages/es.json
+    ./src/i18n/request.ts
+    ./node_modules/next-intl/dist/esm/production/server/react-server/getConfig.js
+    ./node_modules/next-intl/dist/esm/production/navigation/react-server/getServerLocale.js
+    ./node_modules/next-intl/dist/esm/production/navigation/react-server/createNavigation.js
+    ./src/navigation.ts
+    ./src/middleware.ts
+
+
+    at ignore-listed frames

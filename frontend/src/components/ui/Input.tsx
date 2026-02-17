@@ -1,31 +1,42 @@
 import { InputHTMLAttributes, forwardRef } from 'react';
 import { cn } from './Button';
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface InputProps extends InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
   label?: string;
   error?: string;
+  multiline?: boolean;
 }
 
-const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className, label, error, ...props }, ref) => {
+const Input = forwardRef<HTMLInputElement & HTMLTextAreaElement, InputProps>(
+  ({ className, label, error, multiline, ...props }, ref) => {
+    const inputStyles = cn(
+      'flex w-full rounded-md border border-gray-300 bg-white px-4 py-3 text-sm transition-all placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-accent-orange focus:border-accent-orange disabled:cursor-not-allowed disabled:opacity-50',
+      error && 'border-alert focus:ring-alert focus:border-alert',
+      className
+    );
+
     return (
       <div className="w-full">
         {label && (
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-secondary mb-1.5 ml-1">
             {label}
           </label>
         )}
-        <input
-          ref={ref}
-          className={cn(
-            'flex h-10 w-full rounded-md border border-border bg-white px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
-            error && 'border-alert focus-visible:ring-alert',
-            className
-          )}
-          {...props}
-        />
+        {multiline ? (
+          <textarea
+            ref={ref}
+            className={cn(inputStyles, 'min-h-[100px] resize-none')}
+            {...props as any}
+          />
+        ) : (
+          <input
+            ref={ref}
+            className={cn('h-12', inputStyles)}
+            {...props as any}
+          />
+        )}
         {error && (
-          <p className="mt-1 text-xs text-alert">{error}</p>
+          <p className="mt-1.5 text-xs text-alert font-medium ml-1">{error}</p>
         )}
       </div>
     );

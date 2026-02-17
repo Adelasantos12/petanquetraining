@@ -6,48 +6,74 @@
     "loading": "Loading...",
     "home": "Home",
     "logout": "Logout",
-    "status": "Status"
+    "status": "Status",
+    "apply": "Apply",
+    "signin": "Sign in"
   },
   "landing": {
-    "title": "CIEP MERCI",
-    "subtitle": "Intensive petanque tracking program",
-    "description": "Optimize your performance with the MERCI method.",
-    "login": "Login",
-    "register": "Register"
+    "title": "perform.",
+    "tagline": "The standard in high-performance tracking.",
+    "hero_title": "Optimize your technique. Dominate the competition.",
+    "hero_subtitle": "Advanced diagnostic and tracking methodology for athletes seeking technical excellence through measurable data.",
+    "cta_primary": "Apply for admission",
+    "cta_secondary": "Sign in",
+    "what_is": {
+      "title": "What is perform?",
+      "description": "An exclusive technical management platform based on the CIEP system. It's not a course; it's a comprehensive tracking program to transform your performance."
+    },
+    "how_works": {
+      "title": "How it works",
+      "step1": "Application",
+      "step1_desc": "Submit your request detailing your sports profile and goals.",
+      "step2": "Interview",
+      "step2_desc": "Personalized assessment to validate compatibility with the program.",
+      "step3": "Diagnostic",
+      "step3_desc": "In-depth analysis of your technical and cognitive capabilities.",
+      "step4": "Admission",
+      "step4_desc": "Access to the intensive training plan and data tracking."
+    },
+    "eligibility": {
+      "title": "Not for everyone.",
+      "subtitle": "We look for athletes committed to discipline and continuous improvement.",
+      "points": [
+        "Commitment to daily training.",
+        "Access to suitable technical facilities.",
+        "Ability to analyze and record results.",
+        "Excellence-oriented mindset."
+      ]
+    },
+    "faq": {
+        "title": "Frequently Asked Questions",
+        "q1": "Is it an online course?",
+        "a1": "No. perform is a technical tracking and integral diagnostic platform. You receive a personalized plan based on your data.",
+        "q2": "Do I need special equipment?",
+        "a2": "You need access to a regulation petanque court and your own set of competition balls.",
+        "q3": "How long is the program?",
+        "a3": "It is a continuous high-performance program. The initial diagnostic phase lasts 2 weeks."
+    }
   },
-  "application": {
-    "title": "Admission Form",
-    "section1": "Basic Identification",
-    "section2": "Sports Profile",
-    "section3": "Availability & Logistics",
-    "section4": "Motivation & Commitment",
-    "firstName": "First Name",
-    "lastName": "Last Name",
-    "country": "Country",
-    "city": "City",
-    "yearsPlaying": "Years playing",
-    "weeklyHours": "Available hours per week",
-    "courtAccess": "I have access to a court",
-    "submit": "Submit Application"
-  },
-  "onboarding": {
-      "profile": "Player Profile",
-      "commitment": "Commitment Letter",
-      "payment": "Registration",
-      "schedule": "Schedule Session"
-  },
-  "training": {
-    "distance": "Distance",
-    "saveResult": "Save Result"
-  },
-  "status": {
-      "lead": "Start",
-      "applicant_submitted": "Application Submitted",
-      "preselected": "Preselected",
-      "interview_scheduled": "Interview Scheduled",
-      "interview_completed": "Interview Completed",
-      "diagnostic_unlocked": "Diagnostic Unlocked",
-      "accepted": "Accepted",
-      "active_member": "Active Member"
+  "apply": {
+    "title": "Admission Request",
+    "description": "Complete the following steps to apply for the high-performance program.",
+    "steps": {
+      "personal": "Personal",
+      "sport": "Sports",
+      "logistics": "Logistics",
+      "motivation": "Motivation"
+    },
+    "form": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "country": "Country",
+      "city": "City",
+      "yearsExperience": "Years of experience",
+      "tournamentsCurrent": "Tournaments played / year",
+      "tournamentsGoal": "Goal tournaments / year",
+      "weeklyHours": "Available hours per week",
+      "hasCourt": "Do you have access to a court?",
+      "hasEquipment": "Do you have your own equipment?",
+      "motivation": "Why do you want to join perform?",
+      "submit": "Submit application"
+    }
   }
 }

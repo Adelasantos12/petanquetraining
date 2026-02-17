@@ -6,48 +6,74 @@
     "loading": "Cargando...",
     "home": "Inicio",
     "logout": "Cerrar Sesión",
-    "status": "Estado"
+    "status": "Estado",
+    "apply": "Solicitar admisión",
+    "signin": "Ingresar"
   },
   "landing": {
-    "title": "CIEP MERCI",
-    "subtitle": "Programa intensivo de seguimiento de petanca",
-    "description": "Optimiza tu rendimiento con el método MERCI.",
-    "login": "Iniciar Sesión",
-    "register": "Registrarse"
+    "title": "perform.",
+    "tagline": "El estándar en seguimiento de alto rendimiento.",
+    "hero_title": "Optimiza tu técnica. Domina la competición.",
+    "hero_subtitle": "Metodología avanzada de diagnóstico y seguimiento para atletas que buscan la excelencia técnica a través de datos medibles.",
+    "cta_primary": "Solicitar admisión",
+    "cta_secondary": "Ingresar",
+    "what_is": {
+      "title": "¿Qué es perform?",
+      "description": "Una plataforma exclusiva de gestión técnica basada en el sistema CIEP. No es un curso; es un programa de seguimiento integral para transformar tu rendimiento."
+    },
+    "how_works": {
+      "title": "Cómo funciona",
+      "step1": "Postulación",
+      "step1_desc": "Envía tu solicitud detallando tu perfil deportivo y objetivos.",
+      "step2": "Entrevista",
+      "step2_desc": "Evaluación personalizada para validar compatibilidad con el programa.",
+      "step3": "Diagnóstico",
+      "step3_desc": "Análisis profundo de tus capacidades técnicas y cognitivas.",
+      "step4": "Admisión",
+      "step4_desc": "Acceso al plan de entrenamiento intensivo y seguimiento de datos."
+    },
+    "eligibility": {
+      "title": "No es para todos.",
+      "subtitle": "Buscamos atletas comprometidos con la disciplina y la mejora continua.",
+      "points": [
+        "Compromiso con el entrenamiento diario.",
+        "Acceso a instalaciones técnicas adecuadas.",
+        "Capacidad de análisis y registro de resultados.",
+        "Mentalidad orientada a la excelencia."
+      ]
+    },
+    "faq": {
+        "title": "Preguntas frecuentes",
+        "q1": "¿Es un curso online?",
+        "a1": "No. perform es una plataforma de seguimiento técnico y diagnóstico integral. Recibes un plan personalizado basado en tus datos.",
+        "q2": "¿Necesito equipo especial?",
+        "a2": "Necesitas acceso a una cancha de petanca reglamentaria y tu propio juego de bolas de competición.",
+        "q3": "¿Cuánto dura el programa?",
+        "a3": "Es un programa continuo de alto rendimiento. La fase de diagnóstico inicial dura 2 semanas."
+    }
   },
-  "application": {
-    "title": "Formulario de Admisión",
-    "section1": "Identificación Básica",
-    "section2": "Perfil Deportivo",
-    "section3": "Disponibilidad y Logística",
-    "section4": "Motivación y Compromiso",
-    "firstName": "Nombre",
-    "lastName": "Apellido",
-    "country": "País",
-    "city": "Ciudad",
-    "yearsPlaying": "Años jugando",
-    "weeklyHours": "Horas disponibles por semana",
-    "courtAccess": "Tengo acceso a una cancha",
-    "submit": "Enviar Aplicación"
-  },
-  "onboarding": {
-      "profile": "Perfil del Jugador",
-      "commitment": "Carta Compromiso",
-      "payment": "Inscripción",
-      "schedule": "Agendar Sesión"
-  },
-  "training": {
-    "distance": "Distancia",
-    "saveResult": "Registrar Resultado"
-  },
-  "status": {
-      "lead": "Inicio",
-      "applicant_submitted": "Aplicación Enviada",
-      "preselected": "Preseleccionado",
-      "interview_scheduled": "Entrevista Agendada",
-      "interview_completed": "Entrevista Completada",
-      "diagnostic_unlocked": "Diagnóstico Desbloqueado",
-      "accepted": "Admitido",
-      "active_member": "Miembro Activo"
+  "apply": {
+    "title": "Solicitud de Admisión",
+    "description": "Completa los siguientes pasos para postular al programa de alto rendimiento.",
+    "steps": {
+      "personal": "Personal",
+      "sport": "Deportivo",
+      "logistics": "Logística",
+      "motivation": "Motivación"
+    },
+    "form": {
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "country": "País",
+      "city": "Ciudad",
+      "yearsExperience": "Años de experiencia",
+      "tournamentsCurrent": "Torneos jugados / año",
+      "tournamentsGoal": "Torneos objetivo / año",
+      "weeklyHours": "Horas disponibles por semana",
+      "hasCourt": "¿Tienes acceso a una cancha?",
+      "hasEquipment": "¿Tienes equipamiento propio?",
+      "motivation": "¿Por qué quieres entrar en perform?",
+      "submit": "Enviar solicitud"
+    }
   }
 }
