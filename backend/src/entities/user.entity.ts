@@ -5,6 +5,7 @@ import { Payment } from './payment.entity';
 import { MerciAssessment } from './merci-assessment.entity';
 import { PlayerBlock } from './player-block.entity';
 import { PlayerExerciseRun } from './player-exercise-run.entity';
+import { UserGamification } from './user-gamification.entity';
 
 export enum UserRole {
   COACH = 'coach',
@@ -75,4 +76,7 @@ export class User {
 
   @OneToMany(() => PlayerExerciseRun, (run) => run.user)
   exerciseRuns: PlayerExerciseRun[];
+
+  @OneToOne(() => UserGamification, (gamification) => gamification.user)
+  gamification: UserGamification;
 }

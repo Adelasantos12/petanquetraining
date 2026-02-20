@@ -1,16 +1,12 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { api, useAuth } from '@/providers/AuthProvider';
+import { api } from '@/providers/AuthProvider';
+import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-import { useRouter, Link } from '@/navigation';
 import { useTranslations } from 'next-intl';
 
 export default function CoachDashboard() {
-  const t = useTranslations('common');
-  const ts = useTranslations('status');
-  const { logout } = useAuth();
-  const router = useRouter();
   const [players, setPlayers] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -28,50 +24,61 @@ export default function CoachDashboard() {
     fetchPlayers();
   }, []);
 
-  if (isLoading) return <div className="p-8">Cargando lista de jugadores...</div>;
+  if (isLoading) return <div className="p-8">Cargando panel de coach...</div>;
 
   return (
-    <div className="min-h-screen bg-gray-50 pb-12">
-      <nav className="bg-white border-b border-border px-8 py-4 flex justify-between items-center mb-8">
-        <h1 className="text-xl font-bold">CIEP Coach Panel</h1>
-        <Button variant="ghost" size="sm" onClick={() => { logout(); router.push('/login'); }}>Cerrar Sesión</Button>
-      </nav>
+    <div className="p-8 max-w-7xl mx-auto">
+      <header className="mb-8">
+        <h1 className="text-3xl font-bold">Coach Control Center</h1>
+        <p className="text-muted">Gestión de jugadores y programa intensivo</p>
+      </header>
 
-      <div className="max-w-7xl mx-auto px-8">
-        <h2 className="text-2xl font-bold mb-6">Jugadores</h2>
-
-        <div className="bg-white rounded-xl border border-border shadow-sm overflow-hidden">
+      <div className="grid grid-cols-1 gap-6">
+        <Card className="overflow-hidden">
           <table className="w-full text-left">
-            <thead>
-              <tr className="bg-gray-50 border-b border-border">
-                <th className="px-6 py-4 font-bold text-sm">Email</th>
-                <th className="px-6 py-4 font-bold text-sm">{t('status')}</th>
-                <th className="px-6 py-4 font-bold text-sm">Exp.</th>
-                <th className="px-6 py-4 font-bold text-sm">Actions</th>
+            <thead className="bg-gray-50 border-b border-border text-xs uppercase text-muted font-medium">
+              <tr>
+                <th className="px-6 py-4">Jugador</th>
+                <th className="px-6 py-4">Estado</th>
+                <th className="px-6 py-4">Último Diagnóstico</th>
+                <th className="px-6 py-4">Progreso Bloque</th>
+                <th className="px-6 py-4">Acciones</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-border">
               {players.map((player) => (
-                <tr key={player.id} className="hover:bg-gray-50 transition-colors">
-                  <td className="px-6 py-4 text-sm font-medium">{player.email}</td>
-                  <td className="px-6 py-4 text-sm capitalize">
-                    <span className={`px-2 py-1 rounded-full text-[10px] font-bold ${
-                      player.status === 'active_member' ? 'bg-green-100 text-green-700' : 'bg-blue-100 text-blue-700'
+                <tr key={player.id} className="hover:bg-gray-50/50 transition-colors">
+                  <td className="px-6 py-4">
+                    <div className="font-medium">{player.email}</div>
+                    <div className="text-xs text-muted">ID: {player.id.substring(0,8)}</div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <span className={`px-2 py-1 rounded-full text-[10px] font-bold uppercase ${
+                      player.status === 'ACTIVE_MEMBER' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600'
                     }`}>
-                      {ts(player.status)}
+                      {player.status}
                     </span>
                   </td>
-                  <td className="px-6 py-4 text-sm">{player.profile?.yearsOfExperience || '-'}</td>
                   <td className="px-6 py-4 text-sm">
-                    <Link href={`/coach/players/${player.id}`}>
-                      <Button variant="outline" size="sm">Ver Detalles</Button>
-                    </Link>
+                    {player.merciAssessments?.[0] ? (
+                      <span className="text-accent font-medium">Completado</span>
+                    ) : (
+                      <span className="text-muted italic">Pendiente</span>
+                    )}
+                  </td>
+                  <td className="px-6 py-4">
+                    <div className="w-full bg-gray-100 h-1.5 rounded-full overflow-hidden">
+                        <div className="bg-accent h-full w-1/3"></div>
+                    </div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <Button variant="outline" size="sm">Ver Perfil</Button>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
-        </div>
+        </Card>
       </div>
     </div>
   );

@@ -33,14 +33,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({ 
+export default async function RootLayout({
   children,
   params
-}: Readonly<{ 
-  children: React.ReactNode; 
+}: Readonly<{
+  children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }>) {
-  const { locale } = await params; 
+  const { locale } = await params;
   const messages = await getMessages();
 
   return (

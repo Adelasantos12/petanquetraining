@@ -11,6 +11,10 @@ import { Application } from './application.entity';
 import { Interview } from './interview.entity';
 import { AdmissionDecision } from './admission-decision.entity';
 import { PaymentLink } from './payment-link.entity';
+import { MissionTemplate } from './mission-template.entity';
+import { MissionAssignment } from './mission-assignment.entity';
+import { Attempt } from './attempt.entity';
+import { UserGamification } from './user-gamification.entity';
 
 export {
   User,
@@ -26,6 +30,10 @@ export {
   Interview,
   AdmissionDecision,
   PaymentLink,
+  MissionTemplate,
+  MissionAssignment,
+  Attempt,
+  UserGamification,
 };
 
 export const ENTITIES = [
@@ -42,4 +50,8 @@ export const ENTITIES = [
   Interview,
   AdmissionDecision,
   PaymentLink,
+  MissionTemplate,
+  MissionAssignment,
+  Attempt,
+  UserGamification,
 ];

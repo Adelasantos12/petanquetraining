@@ -14,6 +14,8 @@ import { CoachModule } from './coach/coach.module';
 import { ApplicationsModule } from './applications/applications.module';
 import { InterviewsModule } from './interviews/interviews.module';
 import { AdmissionModule } from './admission/admission.module';
+import { MissionsModule } from './missions/missions.module';
+import { GamificationModule } from './gamification/gamification.module';
 
 @Module({
   imports: [
@@ -45,6 +47,8 @@ import { AdmissionModule } from './admission/admission.module';
     ApplicationsModule,
     InterviewsModule,
     AdmissionModule,
+    MissionsModule,
+    GamificationModule,
   ],
   controllers: [AppController],
   providers: [AppService],
